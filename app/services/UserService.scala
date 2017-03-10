@@ -35,8 +35,7 @@ class UserService@Inject() (cache: CacheApi) {
 
       userList.filter(x => (x.userName == name))(0)
     } else
-      userNew
-
+      User("","","","","","",24)
   }
 
   def userExist(name: String): Boolean = {

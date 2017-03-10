@@ -14,8 +14,7 @@ $('#MainBody').html(data);
 
 },
 error: function(){
-$('#MainBody').html("hello");
-alert("fail")
+alert("No Data Found")
 }
 })
 })
@@ -27,13 +26,11 @@ success: function(data){
 $('#MainBody').html(data);
 },
 error: function(){
-$('#MainBody').html("hello");
-alert("fail")
+alert("No Data Found")
+
 }
-
 })
 })
-
 //FormSubmit Button
 
 $('#submitForm').on("click",function(){
@@ -43,8 +40,7 @@ success: function(data){
 $('#MainBody').html(data);
 },
 error: function(){
-$('#MainBody').html("hello");
-alert("fail")
+alert("No Data Found")
 }
 
 })
@@ -54,32 +50,53 @@ alert("fail")
 
 
 $('#login').on("click",function(){
-jsRoutes.controllers.HomeController.loginSubmit().ajax({
+jsRoutes.controllers.HomeController.loginSubmit($('#userName').val()).ajax({
 success: function(data){
 $('#MainBody').html(data);
 },
 error: function(){
-$('#MainBody').html("hello");
-alert("fail")
+alert("No Data Found")
 }
 
 })
 })
 
+
+//Home button
 $('#home').on("click",function(){
 jsRoutes.controllers.HomeController.home().ajax({
 success: function(data){
 $('#MainBody').html(data);
 },
 error: function(){
-$('#MainBody').html("hello");
-alert("fail")
+alert("No Data Found")
 }
-
 })
 })
 
+$('#goToHome').on("click",function(){
+jsRoutes.controllers.HomeController.home().ajax({
+success: function(data){
+$('#MainBody').html(data);
+},
+error: function(){
+alert("No Data Found")
+}
+})
+})
 
+//logout button
+
+$('#logout').on("click",function(){
+jsRoutes.controllers.HomeController.logout().ajax({
+success: function(data){
+$('#MainBody').html(data);
+},
+error: function(){
+alert("No Data Found")
+}
+})
+})
 
 });
 

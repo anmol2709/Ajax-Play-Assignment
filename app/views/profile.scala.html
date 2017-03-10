@@ -1,5 +1,6 @@
 
 @(user: models.User)(implicit request: play.api.mvc.RequestHeader)
+<script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
 
 <div class="container">
 
@@ -34,7 +35,8 @@
 
     <br><br>
 
-    <input type="button" class="btn-success btn-lg" value=" Home" id="home">
+    <input type="button" class="btn-success btn-lg" value=" Home" id="home"><br><br>
+    <input type="button" class="btn-danger" value=" LogOut" id="logout">
     <!--<a href="/logout" class="btn-danger btn-lg"> LogOut </a>-->
 
 </center>

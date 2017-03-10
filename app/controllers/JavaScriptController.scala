@@ -17,7 +17,9 @@ class JavaScriptController extends Controller{
         routes.javascript.HomeController.signUp,
         routes.javascript.HomeController.signIn,
         routes.javascript.HomeController.submit,
-        routes.javascript.HomeController.loginSubmit
+        routes.javascript.HomeController.home,
+        routes.javascript.HomeController.loginSubmit,
+        routes.javascript.HomeController.logout
 
       )
     ).as("text/javascript")

@@ -22,23 +22,22 @@ class HomeController @Inject()(service:UserService,formControl:FormController) e
     Ok(views.html.login())
   }
 
+  def logout=Action {
+    Ok(views.html.welcome()).withNewSession
+  }
 
-//  def submit = Action { implicit request =>
-//    val user = User("Anmol", "a", "anmol", "anmol",  "9971783971", "male", 24)
-//    //    val user1: User = formControl.userForm.bindFromRequest.get
-//    //     print(user1)
-//
-//      }
 
-  def loginSubmit = Action { implicit request =>
-//      val userLogin: Login = formControl.loginForm.bindFromRequest.get
-      val userLogin=Login("anmol","anmol")
+
+  def loginSubmit(userName: String) = Action { implicit request =>
+
+    val userLogin=service.getUser(userName)
+println(userLogin.userName)
       if (service.checkUser(userLogin.userName, userLogin.password)) {
-        val foundUser = service.getUser(userLogin.userName)
-        Ok(views.html.profile(foundUser)).withSession("connected" -> userLogin.userName)
+
+        Ok(views.html.profile(userLogin)).withSession("connected" -> userLogin.userName)
       }
       else {
-       Ok("Unable to login")
+       Ok(views.html.login()).withNewSession
       }
     }
 
@@ -49,10 +48,14 @@ class HomeController @Inject()(service:UserService,formControl:FormController) e
       service.addUser(user)
       Ok(views.html.profile(user)).withSession("connected" -> user.userName)
     }else {
-        Ok(views.html.signUp())
+        Ok("UserName Already Exists")
       }
     }
 
+
+  def home=Action{implicit request =>
+    Ok(views.html.welcome())
+  }
 
 
 }
