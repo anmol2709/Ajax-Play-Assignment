@@ -1,0 +1,42 @@
+
+@(user: models.User)(implicit request: play.api.mvc.RequestHeader)
+
+<div class="container">
+
+
+<h1 class=" text-center text-info"> USER DETAILS!!!!!</h1><br>
+
+<form>
+    <center>  <table class="table-striped text-center table-bordered">
+
+        <tr>
+            <td class="col-md-4"><label>Name</label></td> <td class="col-md-5"> <label>@user.name</label></td>
+        </tr>
+        <tr>
+            <td class="col-md-4"><label>User Name</label></td> <td class="col-md-5"> <label>@user.userName</label></td>
+        </tr>
+        <tr>
+            <td class="col-md-4"><label>Mobile Number</label></td> <td class="col-md-5"> <label>@user.mobileNumber</label></td>
+        </tr>
+        <tr>
+            <td class="col-md-4"><label>Gender</label></td> <td class="col-md-5"> <label>@user.gender</label></td>
+        </tr>
+        <tr>
+            <td class="col-md-4"><label>Age</label></td> <td class="col-md-5"> <label>@user.age</label></td>
+        </tr>
+
+    </table>
+        <br><br>
+
+    </center>
+</form>
+<center>
+
+    <br><br>
+
+    <input type="button" class="btn-success btn-lg" value=" Home" id="home">
+    <!--<a href="/logout" class="btn-danger btn-lg"> LogOut </a>-->
+
+</center>
+</div>
+
